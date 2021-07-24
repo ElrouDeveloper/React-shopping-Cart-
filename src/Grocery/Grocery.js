@@ -9,7 +9,7 @@ class Grocery extends Component
 
     render()
     {
-        console.log(this.props.product)
+        console.log( "",this.props.product)
 
         return (
             <div>

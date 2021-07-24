@@ -1,6 +1,6 @@
 
 import { Component } from "react";
-import Grocery from "../grocery/grocery";
+import Grocery from "../Grocery/Grocery";
 
 
 
