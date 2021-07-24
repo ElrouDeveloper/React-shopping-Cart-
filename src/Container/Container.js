@@ -54,27 +54,36 @@ class Container extends Component
 
         this.setState({ numberOfItems: this.state.numberOfItems + 1 })
 
+        console.log("item", e)
+
         this.setState({ groceries: this.state.groceries.concat(e) })
 
         console.log(this.state.groceries)
+        const groupedBy = this.groupedBy(this.state.groceries, 'id')
+        console.log("grouped by ", groupedBy)
+        console.log("first elemet", Object.entries(groupedBy)[0])
+
+
+
+
+        // Object.keys(this.state.groceries).map(key =>
+        //    console.log("key", this.state.groceries[key])//value
+        // )
     }
 
     groupedBy = (array, key) =>
     {
-        // Return the end result
         return array.reduce((result, currentValue) =>
         {
-            // If an array already present for key, push it to the array. Else create an array and push the object
             (result[currentValue[key]] = result[currentValue[key]] || []).push(
                 currentValue
             );
-            // Return the current iteration `result` value, this will be taken as next iteration `result` value and accumulate
             return result;
-        }, {}); // empty object is the initial value for result object
+        }, {});
     };
 
-    // Group by color as key to the person array
-    //groceriesGroupedById = this.goupedBy(this.state.groceries, 'id');
+
+
 
     render()
     {
@@ -86,7 +95,6 @@ class Container extends Component
 
         return (
             <div>
-
                 {products}
                 <span >total : {this.state.total}</span>
                 <span>numberOfItems : {this.state.numberOfItems} </span>
@@ -100,7 +108,7 @@ class Container extends Component
                         <Route
                             path='/pay'
                             render={(props) => (
-                                <Carte {...props} groceries={this.state.groceries} />
+                                <Carte {...props} groceries={this.groupedBy(this.state.groceries, 'id')} />
                             )}
                         />
                     </Switch>

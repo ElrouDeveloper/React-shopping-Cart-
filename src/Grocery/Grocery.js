@@ -9,15 +9,18 @@ class Grocery extends Component
 
     render()
     {
-        console.log( "",this.props.product)
 
         return (
+
             <div>
                 <Image src={this.props.product.picture} size='tiny' verticalAlign='top' /> <span>{this.props.product.description}</span>
                 <Button positive onClick={this.handleAddToCarte}>Add To Carte</Button>
                 <div>
                     <span >{this.props.product.price}</span>
                 </div>
+                <span> number of element : {this.props.numberOfElement} </span>
+                <span> total price : {this.props.price} </span>
+
                 <Divider />
             </div>
         )
