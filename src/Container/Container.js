@@ -54,21 +54,10 @@ class Container extends Component
 
         this.setState({ numberOfItems: this.state.numberOfItems + 1 })
 
-        console.log("item", e)
-
         this.setState({ groceries: this.state.groceries.concat(e) })
 
-        console.log(this.state.groceries)
-        const groupedBy = this.groupedBy(this.state.groceries, 'id')
-        console.log("grouped by ", groupedBy)
-        console.log("first elemet", Object.entries(groupedBy)[0])
+        // const groupedBy = this.groupedBy(this.state.groceries, 'id')
 
-
-
-
-        // Object.keys(this.state.groceries).map(key =>
-        //    console.log("key", this.state.groceries[key])//value
-        // )
     }
 
     groupedBy = (array, key) =>
@@ -81,6 +70,18 @@ class Container extends Component
             return result;
         }, {});
     };
+
+    AddProduct = (e) =>
+    {
+        this.setState({ groceries: this.state.groceries.concat(e) })
+    }
+    RemoveProduct = (e) =>
+    {
+        let result = this.state.groceries.find(item => item.id === e.id)
+        let index = this.state.groceries.indexOf(result)
+        this.setState({ groceries: this.state.groceries.splice(index, 1) })
+
+    }
 
 
 
@@ -108,7 +109,7 @@ class Container extends Component
                         <Route
                             path='/pay'
                             render={(props) => (
-                                <Carte {...props} groceries={this.groupedBy(this.state.groceries, 'id')} />
+                                <Carte {...props} RemoveProduct={this.RemoveProduct} AddProduct={this.AddProduct} groceries={this.groupedBy(this.state.groceries, 'id')} />
                             )}
                         />
                     </Switch>

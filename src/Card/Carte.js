@@ -8,6 +8,18 @@ import Grocery from "../Grocery/Grocery";
 class Carte extends Component
 {
 
+    AddProduct = (e) =>
+    {
+
+        this.props.AddProduct(e);
+    }
+
+    RemoveProduct = (e) =>
+    {
+        this.props.RemoveProduct(e);
+
+    }
+
     render()
     {
 
@@ -18,7 +30,7 @@ class Carte extends Component
                 return prev + cur.price;
             }, 0);
 
-            return <Grocery price={totalPrice} numberOfElement={this.props.groceries[key].length} product={this.props.groceries[key][0]} />
+            return <Grocery AddProduct={this.AddProduct} RemoveProduct={this.RemoveProduct} price={totalPrice} numberOfElement={this.props.groceries[key].length} product={this.props.groceries[key][0]} />
         });
         return (
             <div>
