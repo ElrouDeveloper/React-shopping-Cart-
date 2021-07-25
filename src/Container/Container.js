@@ -52,11 +52,9 @@ class Container extends Component
     {
         this.setState({ total: this.state.total + e.price })
 
-        this.setState({ numberOfItems: this.state.numberOfItems + 1 })
 
         this.setState({ groceries: this.state.groceries.concat(e) })
 
-        // const groupedBy = this.groupedBy(this.state.groceries, 'id')
 
     }
 
@@ -80,9 +78,17 @@ class Container extends Component
         let result = this.state.groceries.find(item => item.id === e.id)
         let index = this.state.groceries.indexOf(result)
         this.setState({ groceries: this.state.groceries.splice(index, 1) })
-
     }
 
+
+    sumTotal()
+    {
+
+        this.props.groceries.reduce(function (prev, cur)
+        {
+            return prev + cur.price;
+        }, 0);
+    }
 
 
 
@@ -98,7 +104,7 @@ class Container extends Component
             <div>
                 {products}
                 <span >total : {this.state.total}</span>
-                <span>numberOfItems : {this.state.numberOfItems} </span>
+                <span>numberOfItems : {this.state.groceries.length} </span>
                 <BrowserRouter>
                     <nav>
                         <ul>
