@@ -6,10 +6,21 @@ import { Divider, Image, Button } from 'semantic-ui-react'
 
 class Grocery extends Component
 {
+    AddProduct = () =>
+    {
+
+        this.props.AddProduct(this.props.product)
+
+    }
+
+    RemoveProduct = () =>
+    {
+
+        this.props.RemoveProduct(this.props.product)
+    }
 
     render()
     {
-
         return (
 
             <div>
@@ -20,6 +31,8 @@ class Grocery extends Component
                 </div>
                 <span> number of element : {this.props.numberOfElement} </span>
                 <span> total price : {this.props.price} </span>
+                <i onClick={this.AddProduct} className="plus square icon"></i>
+                <i onClick={this.RemoveProduct} className="minus square icon"></i>
 
                 <Divider />
             </div>
