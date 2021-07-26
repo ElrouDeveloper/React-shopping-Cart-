@@ -1,5 +1,4 @@
 import { Component } from "react";
-import { Divider, Image, Button } from 'semantic-ui-react'
 
 
 
@@ -18,13 +17,19 @@ class Product extends Component
     {
 
         return (
-            <div>
-                <Image src={this.props.product.picture} size='tiny' verticalAlign='top' /> <span>{this.props.product.description}</span>
-                <Button positive onClick={this.handleAddToCarte}>Add To Carte</Button>
-                <div>
-                    <span >{this.props.product.price}</span>
+            <div className="card" key={this.props.product.id}>
+                <div className="card-image" >
+                    <img style={{ maxWidth: "100px", height: "auto" }} src={this.props.product.picture} alt={this.props.product.description} />
+                    <span className="card-title">{this.props.product.description}</span>
+                    <span to="/" className="btn-floating halfway-fab waves-effect waves-light red">
+                        <i onClick={this.handleAddToCarte} className="material-icons">add</i>
+                    </span>
                 </div>
-                <Divider />
+
+                <div className="card-content">
+                    <p>{this.props.product.description}</p>
+                    <p><b>Price: {this.props.product.price}$</b></p>
+                </div>
             </div>
         );
 

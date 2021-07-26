@@ -3,7 +3,7 @@ import Product from "../Product/Product"
 import { v4 as uuidv4 } from 'uuid';
 import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
 import Carte from "../Card/Carte"
-
+import Navbar from "../NavBar/Navbar";
 
 class Container extends Component
 {
@@ -17,7 +17,7 @@ class Container extends Component
             id: uuidv4(),
             description: "Shampo1",
             picture: "Product/product1.jpg",
-            price: 6000
+            price: 6000,
 
         }, {
             id: uuidv4(),
@@ -69,6 +69,7 @@ class Container extends Component
         }, {});
     };
 
+
     AddProduct = (e) =>
     {
         this.setState({ groceries: this.state.groceries.concat(e) })
@@ -102,7 +103,13 @@ class Container extends Component
 
         return (
             <div>
-                {products}
+
+                <div className="container">
+                    <h3 className="center">Our items</h3>
+                    <div className="box">
+                        {products}
+                    </div>
+                </div>
                 <span >total : {this.state.total}</span>
                 <span>numberOfItems : {this.state.groceries.length} </span>
                 <BrowserRouter>
