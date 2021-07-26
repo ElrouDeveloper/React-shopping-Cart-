@@ -33,8 +33,13 @@ class Carte extends Component
             return <Grocery AddProduct={this.AddProduct} RemoveProduct={this.RemoveProduct} price={totalPrice} numberOfElement={this.props.groceries[key].length} product={this.props.groceries[key][0]} />
         });
         return (
-            <div>
-                {groceries}
+            <div className="container">
+                <div className="cart">
+                    <h5>You have ordered:</h5>
+                    <ul className="collection">
+                        {groceries}
+                    </ul>
+                </div>
             </div>
         );
     }
