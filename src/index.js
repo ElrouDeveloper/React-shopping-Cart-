@@ -4,11 +4,11 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import 'semantic-ui-css/semantic.min.css'
 import Container from "./Container/Container"
-
+import Navbar from "./NavBar/Navbar"
 ReactDOM.render(
   <React.StrictMode>
+    <Navbar />
 
-    
     <Container />
   </React.StrictMode>,
   document.getElementById('root')
