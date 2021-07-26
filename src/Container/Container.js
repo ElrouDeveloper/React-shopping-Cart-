@@ -103,7 +103,6 @@ class Container extends Component
 
         return (
             <div>
-
                 <div className="container">
                     <h3 className="center">Our items</h3>
                     <div className="box">
@@ -112,21 +111,12 @@ class Container extends Component
                 </div>
                 <span >total : {this.state.total}</span>
                 <span>numberOfItems : {this.state.groceries.length} </span>
-                <BrowserRouter>
-                    <nav>
-                        <ul>
-                            <li><Link to="/Pay">Pay</Link></li>
-                        </ul>
-                    </nav>
-                    <Switch>
-                        <Route
-                            path='/pay'
-                            render={(props) => (
-                                <Carte {...props} RemoveProduct={this.RemoveProduct} AddProduct={this.AddProduct} groceries={this.groupedBy(this.state.groceries, 'id')} />
-                            )}
-                        />
-                    </Switch>
-                </BrowserRouter>
+
+                <Route
+                    path='/cart' Component={Carte}
+                >
+                    <Carte RemoveProduct={this.RemoveProduct} AddProduct={this.AddProduct} groceries={this.groupedBy(this.state.groceries, 'id')} />
+                </Route>
             </div>
 
         );

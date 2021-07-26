@@ -5,11 +5,13 @@ import reportWebVitals from './reportWebVitals';
 import 'semantic-ui-css/semantic.min.css'
 import Container from "./Container/Container"
 import Navbar from "./NavBar/Navbar"
+import { BrowserRouter } from 'react-router-dom'
 ReactDOM.render(
   <React.StrictMode>
-    <Navbar />
-
-    <Container />
+    <BrowserRouter>
+      <Navbar />
+      <Container />
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
