@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
 import Carte from "../Card/Carte"
 import Navbar from "../NavBar/Navbar";
-
+import "./Container.css";
 class Container extends Component
 {
 
@@ -103,22 +103,17 @@ class Container extends Component
 
         return (
             <div>
-                <div className="container">
+                <div className="container row">
                     <h3 className="center">Our items</h3>
-                    <div className="box">
+                    <div className="box column ">
                         {products}
+
                     </div>
-                </div>
-                <span >total : {this.state.total}</span>
-                <span>numberOfItems : {this.state.groceries.length} </span>
-
-                <Route
-                    path='/cart' Component={Carte}
-                >
+                    <div className="total" >Total : {this.state.total}</div>
+                    <div className="total">Number Of Items : {this.state.groceries.length} </div>
                     <Carte RemoveProduct={this.RemoveProduct} AddProduct={this.AddProduct} groceries={this.groupedBy(this.state.groceries, 'id')} />
-                </Route>
+                </div>
             </div>
-
         );
     }
 

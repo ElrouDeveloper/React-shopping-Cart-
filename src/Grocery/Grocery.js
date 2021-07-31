@@ -35,7 +35,10 @@ class Grocery extends Component
                         <p><b>Price: {this.props.product.price}$</b></p>
                         <p>
                             <b>Quantity: {this.props.numberOfElement}</b>
+
+
                         </p>
+                        <p><b>total: {this.props.price}</b></p>
                         <div className="add-remove">
                             <i className="material-icons" onClick={this.AddProduct}>arrow_drop_up</i>
                             <i className="material-icons" onClick={this.RemoveProduct}>arrow_drop_down</i>

@@ -22,7 +22,6 @@ class Carte extends Component
 
     render()
     {
-
         const groceries = Object.keys(this.props.groceries).map(key =>
         {
             var totalPrice = this.props.groceries[key].reduce(function (prev, cur)
@@ -42,6 +41,7 @@ class Carte extends Component
                 </div>
             </div>
         );
+
     }
 
 }

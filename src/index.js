@@ -6,11 +6,17 @@ import 'semantic-ui-css/semantic.min.css'
 import Container from "./Container/Container"
 import Navbar from "./NavBar/Navbar"
 import { BrowserRouter } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
+
+import Carte from './Card/Carte'
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Navbar />
-      <Container />
+      <Switch>
+        <Route path="/" component={Container} exact />
+        <Route path="/Carte" component={Carte} />
+      </Switch>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
